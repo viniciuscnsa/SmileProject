@@ -1,4 +1,4 @@
-package gui;
+package br.com.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Cursor;
@@ -23,7 +23,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
 
-import main.SmileProject;
+import br.com.main.*;
 
 @SuppressWarnings("serial")
 public class mainScreen extends JPanel {
@@ -38,8 +38,7 @@ public class mainScreen extends JPanel {
 	public mainScreen(String path1,String path2,String path3) throws IOException {
 		setBorder(new TitledBorder(null, "SmileGame", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 
-		main.SmileProject game = new main.SmileProject();
-
+		SmileProject game = new SmileProject();
 		
 		frmSmileGame.setResizable(false);
 		frmSmileGame.setTitle("Smile Game");
@@ -83,10 +82,10 @@ public class mainScreen extends JPanel {
 		JLabel lblCasoExistaMais = new JLabel("Se existir mais de um sorriso escolha um");
 		northPanel.add(lblCasoExistaMais, "2, 6, 3, 1, left, center");
 
-		JLabel lblPontos = new JLabel("Acertos: " + String.valueOf(game.right));
+		JLabel lblPontos = new JLabel("Acertos: " + String.valueOf(game.getRight()));
 		northPanel.add(lblPontos, "2, 10, left, center");
 
-		JLabel lblErros = new JLabel("Erros: " + String.valueOf(game.wrong));
+		JLabel lblErros = new JLabel("Erros: " + String.valueOf(game.getWrong()));
 		northPanel.add(lblErros, "4, 10, left, center");
 
 
@@ -96,21 +95,21 @@ public class mainScreen extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setPreferredSize(new Dimension(300, 500));
-		BufferedImage image = ImageIO.read(new File(SmileProject.path1));
+		BufferedImage image = ImageIO.read(new File(SmileProject.getPath1()));
 		JLabel label = new JLabel(new ImageIcon(image));
 		panel_1.add(label);
 		centerPanel.add(panel_1);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setPreferredSize(new Dimension(300, 500));
-		BufferedImage image2 = ImageIO.read(new File(SmileProject.path2));
+		BufferedImage image2 = ImageIO.read(new File(SmileProject.getPath2()));
 		JLabel label2 = new JLabel(new ImageIcon(image2));
 		panel_2.add(label2);
 		centerPanel.add(panel_2);
 
 		JPanel panel_3 = new JPanel();
 		panel_3.setPreferredSize(new Dimension(300, 500));
-		BufferedImage image3 = ImageIO.read(new File(SmileProject.path3));
+		BufferedImage image3 = ImageIO.read(new File(SmileProject.getPath3()));
 		JLabel label3 = new JLabel(new ImageIcon(image3));
 		panel_3.add(label3);
 		centerPanel.add(panel_3);
@@ -119,17 +118,17 @@ public class mainScreen extends JPanel {
 		panel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				game.awnser(SmileProject.path1);
-				lblPontos.setText("Acertos: " + String.valueOf(game.right));
-				lblErros.setText("Erros: " + String.valueOf(game.wrong));
+				game.awnser(SmileProject.getPath1());
+				lblPontos.setText("Acertos: " + String.valueOf(game.getRight()));
+				lblErros.setText("Erros: " + String.valueOf(game.getWrong()));
 				SmileProject.randomImages();
 				BufferedImage img1;
 				BufferedImage img2;
 				BufferedImage img3;
 				try {
-					img1 = ImageIO.read(new File(SmileProject.path1));
-					img2 = ImageIO.read(new File(SmileProject.path2));
-					img3 = ImageIO.read(new File(SmileProject.path3));
+					img1 = ImageIO.read(new File(SmileProject.getPath1()));
+					img2 = ImageIO.read(new File(SmileProject.getPath2()));
+					img3 = ImageIO.read(new File(SmileProject.getPath3()));
 					label.setIcon(new ImageIcon(img1));
 					label2.setIcon(new ImageIcon(img2));
 					label3.setIcon(new ImageIcon(img3));
@@ -143,17 +142,17 @@ public class mainScreen extends JPanel {
 		panel_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				game.awnser(SmileProject.path2);
-				lblPontos.setText("Acertos: " + String.valueOf(game.right));
-				lblErros.setText("Erros: " + String.valueOf(game.wrong));
+				game.awnser(SmileProject.getPath2());
+				lblPontos.setText("Acertos: " + String.valueOf(game.getRight()));
+				lblErros.setText("Erros: " + String.valueOf(game.getWrong()));
 				SmileProject.randomImages();
 				BufferedImage img1;
 				BufferedImage img2;
 				BufferedImage img3;
 				try {
-					img1 = ImageIO.read(new File(SmileProject.path1));
-					img2 = ImageIO.read(new File(SmileProject.path2));
-					img3 = ImageIO.read(new File(SmileProject.path3));
+					img1 = ImageIO.read(new File(SmileProject.getPath1()));
+					img2 = ImageIO.read(new File(SmileProject.getPath2()));
+					img3 = ImageIO.read(new File(SmileProject.getPath3()));
 					label.setIcon(new ImageIcon(img1));
 					label2.setIcon(new ImageIcon(img2));
 					label3.setIcon(new ImageIcon(img3));
@@ -165,17 +164,17 @@ public class mainScreen extends JPanel {
 		panel_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				game.awnser(SmileProject.path3);
-				lblPontos.setText("Acertos: " + String.valueOf(game.right));
-				lblErros.setText("Erros: " + String.valueOf(game.wrong));
+				game.awnser(SmileProject.getPath3());
+				lblPontos.setText("Acertos: " + String.valueOf(game.getRight()));
+				lblErros.setText("Erros: " + String.valueOf(game.getWrong()));
 				SmileProject.randomImages();
 				BufferedImage img1;
 				BufferedImage img2;
 				BufferedImage img3;
 				try {
-					img1 = ImageIO.read(new File(SmileProject.path1));
-					img2 = ImageIO.read(new File(SmileProject.path2));
-					img3 = ImageIO.read(new File(SmileProject.path3));
+					img1 = ImageIO.read(new File(SmileProject.getPath1()));
+					img2 = ImageIO.read(new File(SmileProject.getPath2()));
+					img3 = ImageIO.read(new File(SmileProject.getPath3()));
 					label.setIcon(new ImageIcon(img1));
 					label2.setIcon(new ImageIcon(img2));
 					label3.setIcon(new ImageIcon(img3));
@@ -194,9 +193,9 @@ public class mainScreen extends JPanel {
 				BufferedImage img2;
 				BufferedImage img3;
 				try {
-					img1 = ImageIO.read(new File(SmileProject.path1));
-					img2 = ImageIO.read(new File(SmileProject.path2));
-					img3 = ImageIO.read(new File(SmileProject.path3));
+					img1 = ImageIO.read(new File(SmileProject.getPath1()));
+					img2 = ImageIO.read(new File(SmileProject.getPath2()));
+					img3 = ImageIO.read(new File(SmileProject.getPath3()));
 					label.setIcon(new ImageIcon(img1));
 					label2.setIcon(new ImageIcon(img2));
 					label3.setIcon(new ImageIcon(img3));
@@ -214,7 +213,7 @@ public class mainScreen extends JPanel {
 
 		frmSmileGame.pack();
 		frmSmileGame.setVisible(true);
-		//frmSmileGame.setLocationRelativeTo(null);
+		frmSmileGame.setLocationRelativeTo(null);
 	}
 	
 	@SuppressWarnings("deprecation")

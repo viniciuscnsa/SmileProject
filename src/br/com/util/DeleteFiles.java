@@ -1,4 +1,4 @@
-package util;
+package br.com.util;
 
 import java.io.File;
 import java.io.IOException;

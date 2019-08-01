@@ -1,4 +1,4 @@
-package main;
+package br.com.main;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,17 +8,17 @@ import java.util.stream.Stream;
 
 import javax.swing.JFrame;
 
-import gui.mainScreen;
+import br.com.gui.mainScreen;
 
 public class SmileProject {
 	
 	protected static ArrayList<String> imagesDB = new ArrayList<String>(); 
-	public static String path1;
-	public static String path2;
-	public static String path3;
-	static JFrame f;
-	public int right = 0;
-	public int wrong = 0;
+	protected static String path1;
+	protected static String path2;
+	protected static String path3;
+	protected static JFrame f;
+	protected int right = 0;
+	protected int wrong = 0;
 
 	public static void main(String[] args){
 
@@ -29,7 +29,6 @@ public class SmileProject {
 			mainScreen screen = new mainScreen(path1, path2, path3);
 			screen.play();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -80,6 +79,46 @@ public class SmileProject {
 			wrong = wrong + 1;
 		}	
 		//System.out.println("right: " + right + " Wrong: " + wrong);	
+	}
+	
+	public static String getPath1() {
+		return path1;
+	}
+
+	public static void setPath1(String path1) {
+		SmileProject.path1 = path1;
+	}
+
+	public static String getPath2() {
+		return path2;
+	}
+
+	public static void setPath2(String path2) {
+		SmileProject.path2 = path2;
+	}
+
+	public static String getPath3() {
+		return path3;
+	}
+
+	public static void setPath3(String path3) {
+		SmileProject.path3 = path3;
+	}
+
+	public int getRight() {
+		return right;
+	}
+
+	public void setRight(int right) {
+		this.right = right;
+	}
+
+	public int getWrong() {
+		return wrong;
+	}
+
+	public void setWrong(int wrong) {
+		this.wrong = wrong;
 	}
 	
 
